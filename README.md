@@ -1,22 +1,52 @@
 
 ## Merging new Marlin Version
 
-git clone git@github.com:Spudwick/Ender-3-V2-Firmware.git
+Clone custom Firmware repository.
+```
+$ git clone git@github.com:Spudwick/Ender-3-V2-Firmware.git
+```
 
-git remote add marlin https://github.com/MarlinFirmware/Marlin.git
+Add Marlin repository as an additional repository remote.
+```
+$ git remote add marlin https://github.com/MarlinFirmware/Marlin.git
 
-git remote -v
+$ git remote -v
+marlin  https://github.com/MarlinFirmware/Marlin.git (fetch)
+marlin  https://github.com/MarlinFirmware/Marlin.git (push)
+origin  git@github.com:Spudwick/Ender-3-V2-Firmware.git (fetch)
+origin  git@github.com:Spudwick/Ender-3-V2-Firmware.git (push)
+```
 
-git fetch marlin
+Fetch branch and tag information from Marlin remote.
+```
+$ git fetch marlin
 
-git branch -r
-git tag
+$ git branch -r
+marlin/1.0.x
+marlin/1.1.x
+...
+origin/HEAD -> origin/main
+origin/main
 
-git checkout tags/2.1.1 -b marlin-2.1.1
+$ git tag
+1.0.0-beta
+1.0.1
+1.0.2
+1.0.2-1
+...
+```
 
-git checkout main
+Checkout desired Marlin tag or branch into a new local branch.
+```
+$ git checkout tags/2.1.1 -b marlin-2.1.1
 
-git merge marlin-2.1.1 --allow-unrelated-histories
+$ git checkout main
+```
+
+Merge local Marlin branch back into `main`.
+```
+$ git merge marlin-2.1.1 --allow-unrelated-histories
+```
 
 ## Marlin 2.1.1 License
 
